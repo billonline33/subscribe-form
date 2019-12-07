@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { subscribeService } from '../../services/subscribeService';
 import './SubscribeForm.css';
 
 class SubscribeFrom extends Component {
@@ -8,25 +9,38 @@ class SubscribeFrom extends Component {
       firstName: '',
       lastName: '',
       email: '',
-      mobile: ''
+      mobilePhone: ''
     };
   }
 
-  handleSubmitClick(e) {
+  handleSubmit(e) {
     console.log(`Submit Clicked, first name is ${this.state.firstName}`);
     e.preventDefault();
+    const payload = {
+      data: {
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
+        email: this.state.email,
+        mobilePhone: this.state.mobilePhone
+      }
+    };
+
+    subscribeService.submitForm(payload);
+
     this.props.history.push('/subscribe-success');
   }
 
-  handleFirstNameChange(e) {
+  handleInputChange(e) {
+    const name = e.target.name;
+    const value = e.target.value;
     this.setState({
-      firstName: e.target.value
+      [name]: value
     });
   }
 
   render() {
     return (
-      <form className="subscribe">
+      <form className="subscribe" onSubmit={this.handleSubmit.bind(this)}>
         <div className="subscribe__header">
           <h2>Subscribe</h2>
         </div>
@@ -34,46 +48,58 @@ class SubscribeFrom extends Component {
         <div className="subscribe__data">
           <div className="subscribe__row">
             <div className="subscribe__group">
-              <label for="fName">
+              <label htmlFor="firstName">
                 First Name <sup>*</sup>
               </label>
               <div className="subscribe__wrapper">
                 <input
                   type="text"
+                  id="firstName"
                   name="firstName"
                   value={this.state.firstName}
-                  onChange={this.handleFirstNameChange.bind(this)}
+                  onChange={this.handleInputChange.bind(this)}
                 />
               </div>
             </div>
 
             <div className="subscribe__group">
-              <label for="lName">
+              <label htmlFor="lastName">
                 Last Name <sup>*</sup>
               </label>
-              <input type="text" name="lastName" value={this.state.lastName} />
+              <input
+                type="text"
+                name="lastName"
+                value={this.state.lastName}
+                onChange={this.handleInputChange.bind(this)}
+              />
             </div>
           </div>
 
           <div className="subscribe__row">
             <div className="subscribe__group">
-              <label for="email">
+              <label htmlFor="email">
                 Email <sup>*</sup>
               </label>
-              <input type="text" name="email" value={this.state.email} />
+              <input
+                type="text"
+                name="email"
+                value={this.state.email}
+                onChange={this.handleInputChange.bind(this)}
+              />
             </div>
 
             <div className="subscribe__group">
-              <label for="fName">Mobile Phone</label>
-              <input type="text" name="mobile" value={this.state.mobile} />
+              <label htmlFor="mobilePhone">Mobile Phone</label>
+              <input
+                type="text"
+                name="mobilePhone"
+                value={this.state.mobile}
+                onChange={this.handleInputChange.bind(this)}
+              />
             </div>
           </div>
 
-          <input
-            type="submit"
-            value="Submit"
-            onClick={this.handleSubmitClick.bind(this)}
-          />
+          <input type="submit" value="Submit" />
         </div>
       </form>
     );
