@@ -1,0 +1,363 @@
+/* Reset CSS */
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+}
+
+/* subscribe styles */
+.subscribe {
+  background-color: #2c3035;
+  border-bottom: 1px solid #000;
+  margin: 0 auto;
+  max-width: 50rem;
+}
+
+.subscribe__header {
+  background: -o-linear-gradient(#51575e, #383d41);
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#51575e),
+    to(#383d41)
+  );
+  background: linear-gradient(#51575e, #383d41);
+}
+
+.subscribe__header h2 {
+  color: #fff;
+  font-size: 2rem;
+  line-height: 2.2rem;
+  padding: 0.5rem 4rem;
+}
+
+.subscribe__data {
+  padding: 1rem 4rem 6rem;
+}
+
+.subscribe__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  margin-bottom: 1.5rem;
+}
+
+.subscribe__group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.subscribe__group:first-child {
+  margin-right: 2rem;
+}
+
+.subscribe__wrapper {
+  position: relative;
+}
+
+.subscribe__group label {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.subscribe__group label sup {
+  color: #e71b23;
+}
+
+.subscribe__group input {
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  padding: 0.5rem 1.5rem 0.5rem 1rem;
+  width: 100%;
+}
+
+.subscribe__group img {
+  position: absolute;
+  top: 50%;
+  right: 0.5rem;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  height: 1rem;
+  width: 1rem;
+}
+
+.subscribe__data input[type='submit'] {
+  background: -o-linear-gradient(#8e9499, #777f84);
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#8e9499),
+    to(#777f84)
+  );
+  background: linear-gradient(#8e9499, #777f84);
+  border: none;
+  border-radius: 0.5rem;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+}
+
+.subscribe__data input[type='submit']:hover {
+  -webkit-box-shadow: 0 0 0.5rem 0.1rem #fff;
+  box-shadow: 0 0 0.5rem 0.1rem #fff;
+}
+
+/* Large desktops and laptops */
+@media (min-width: 1600px) and (max-width: 1919px) {
+  html {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1440px) and (max-width: 1599px) {
+  html {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1439px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+/* Portrait tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+  html {
+    font-size: 16px;
+  }
+
+  /* subscribe styles */
+  .subscribe {
+    max-width: 45rem;
+  }
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+  html {
+    font-size: 16px;
+  }
+
+  /* subscribe styles */
+  .subscribe {
+    max-width: 100%;
+  }
+
+  .subscribe__header h2 {
+    font-size: 1.5rem;
+    line-height: 1.7rem;
+    padding: 0.5rem 3rem;
+  }
+
+  .subscribe__data {
+    padding: 1rem 3rem 5rem;
+  }
+
+  .subscribe__row {
+    margin-bottom: 1rem;
+  }
+
+  .subscribe__group:first-child {
+    margin-right: 1rem;
+  }
+
+  .subscribe__group label {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .subscribe__group input {
+    font-size: 1rem;
+    padding: 0.5rem 1.5rem 0.5rem 1rem;
+  }
+
+  .subscribe__group img {
+    height: 1rem;
+    width: 1rem;
+  }
+
+  .subscribe__data input[type='submit'] {
+    font-size: 1rem;
+  }
+}
+
+/* Landscape phones and smaller */
+@media (max-width: 480px) {
+  html {
+    font-size: 16px;
+  }
+
+  /* subscribe styles */
+  .subscribe__row {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .subscribe__group {
+    margin-bottom: 1rem;
+  }
+
+  .subscribe__group:first-child {
+    margin-right: 0rem;
+  }
+}
