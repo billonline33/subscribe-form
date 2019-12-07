@@ -1,17 +1,11 @@
-import { apiConstants } from '../constants/api.constants';
-
 /* can easily add more actions here later on*/
 export const subscribeService = {
   submitForm: submitSubscriptionForm
 };
 
 export function submitSubscriptionForm(payLoad) {
-  const endPointURL = `${apiConstants.baseURL}/submit-form`;
-
   let thisBody = JSON.stringify(payLoad);
   console.log('this body 111=', thisBody);
-
-  //debugger;
 
   fetch('/test')
     .then(res => res.json())

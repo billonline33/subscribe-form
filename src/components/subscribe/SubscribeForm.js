@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { subscribeService } from '../../services/subscribeService';
-import './SubscribeForm.css';
 
 class SubscribeFrom extends Component {
   constructor(props) {
