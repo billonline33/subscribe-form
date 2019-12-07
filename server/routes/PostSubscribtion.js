@@ -1,0 +1,23 @@
+const fetch = require('node-fetch');
+const config = require('../config');
+
+module.exports = app => {
+  app.post('/submit-form', (req, res) => {
+    fetch(config.subscriptionBaseUrl.endPoint, {
+      method: 'POST',
+      headers: {
+        'x-auth': 'react-test'
+      },
+      body: req.body
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log('data=', data);
+        res.send({ data });
+      })
+      .catch(err => {
+        // Todo, error handling here
+        console.log(err);
+      });
+  });
+};
