@@ -7,7 +7,9 @@ module.exports = app => {
     fetch(config.subscriptionBaseUrl.endPoint, {
       method: 'POST',
       headers: {
-        'x-auth': 'react-test'
+        'x-auth': 'react-test',
+        'Content-type': 'application/json',
+        Accept: 'application/json'
       },
       body: JSON.stringify(req.body)
     })
