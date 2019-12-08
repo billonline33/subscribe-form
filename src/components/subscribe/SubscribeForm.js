@@ -9,16 +9,17 @@ class SubscribeFrom extends Component {
       lastName: '',
       email: '',
       mobilePhone: '',
-      submitActive: false
+      submitActive: false,
+      error: ''
     };
   }
 
   handleSubmit(e) {
     e.preventDefault();
 
-    if (!this.state.submitActive) {
-      return;
-    }
+    // if (!this.state.submitActive) {
+    //   return;
+    // }
 
     const payload = {
       data: {
@@ -29,9 +30,32 @@ class SubscribeFrom extends Component {
       }
     };
 
-    subscribeService.submitForm(payload);
+    // subscribeService.submitForm(payload);
+    // this.props.history.push('/subscribe-success');
 
-    this.props.history.push('/subscribe-success');
+    fetch('/submit-form', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify(payload)
+    })
+      .then(res => {
+        console.log('res 001=', res);
+
+        if (res.ok) {
+          this.props.history.push('/subscribe-success');
+        } else {
+          this.setState({
+            error: 'Something goes wrong when making web api call.'
+          });
+          throw new Error('something wrong on epxress api call');
+        }
+      })
+      .catch(err => {
+        console.log('subscribeService error', err);
+      });
   }
 
   handleInputChange(e) {
@@ -117,6 +141,9 @@ class SubscribeFrom extends Component {
           </div>
 
           <input type="submit" value="Submit" />
+        </div>
+        <div className="error">
+          {this.state.error.length ? this.state.error : ''}
         </div>
       </form>
     );
