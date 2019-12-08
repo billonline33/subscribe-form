@@ -23,28 +23,28 @@ unit test file can be found on \src\components\subscribe\SubscribeFrom.test.js
 
 ## 2. Main Feature
 
-This is a sample subscription page, the user enters some personal information, when submit buttion is clicked, it calls a web api endpoint, and send data to the server.
+### 2.1 This is a sample subscription page, the user enters some personal information, when submit buttion is clicked, it calls a web api endpoint, and send data to the server.
 
 ![input page](screenshots/DataEntryForm-1.PNG)
 
-First Name, Last Name and Email are mandatory fields. For demonstration purpose, we use client side data validation for First Name and Last Name.
+### 2.2 First Name, Last Name and Email are mandatory fields. For demonstration purpose, we use client side data validation for First Name and Last Name.
 
 ![client side validation](screenshots/DataEntryForm-2.PNG)
 
-We use server side validation for email address, leave the email address empty, and click submit button, web api (node server) returns error, and it is captured by the client app.
+### 2.3 We use server side validation for email address, leave the email address empty, and click submit button, web api (node server) returns error, and it is captured by the client app.
 
 ![server side validation](screenshots/DataEntryForm-3.PNG)
 
-When all fields are entered, click submit button, it calls web api endpoint through a POST request. Once successful, it shows "Thank you for subscriping!"
+### 2.4 When all fields are entered, click submit button, it calls web api endpoint through a POST request. Once successful, it shows "Thank you for subscriping!"
 
 ![all data are entered](screenshots/DataEntryForm-4.PNG)
 
 ![once successful, redirect to the next page](screenshots/DataEntryForm-5.PNG)
 
-The form is reponsive, below is how it looks like on mobile.
+### 2.5 The form is reponsive, below is how it looks like on mobile.
 
 ![responsive](screenshots/DataEntryForm-6.PNG)
 
 ## 3. Project Strucure
 
-![Project Structure](screenshots/FolderStructure.PNG)
+![Project Structure](screenshots/FolderStructure.png)
