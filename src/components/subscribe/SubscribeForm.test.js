@@ -55,7 +55,8 @@ describe('Controlled form testing', () => {
         lastName: '',
         email: '',
         mobilePhone: '',
-        submitActive: false
+        submitActive: false,
+        error: ''
       };
 
       wrapper.instance().handleInputChange(mockEvent);
@@ -75,7 +76,8 @@ describe('Controlled form testing', () => {
         lastName: 'Huang',
         email: '',
         mobilePhone: '',
-        submitActive: false
+        submitActive: false,
+        error: ''
       };
 
       wrapper.instance().handleInputChange(mockEvent);
@@ -95,7 +97,8 @@ describe('Controlled form testing', () => {
         lastName: '',
         email: 'bill@hot.com',
         mobilePhone: '',
-        submitActive: false
+        submitActive: false,
+        error: ''
       };
 
       wrapper.instance().handleInputChange(mockEvent);
@@ -115,7 +118,8 @@ describe('Controlled form testing', () => {
         lastName: '',
         email: '',
         mobilePhone: '04040404',
-        submitActive: false
+        submitActive: false,
+        error: ''
       };
 
       wrapper.instance().handleInputChange(mockEvent);

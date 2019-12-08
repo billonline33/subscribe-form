@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { subscribeService } from '../../services/subscribeService';
 
 class SubscribeFrom extends Component {
   constructor(props) {
@@ -17,9 +16,13 @@ class SubscribeFrom extends Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    // if (!this.state.submitActive) {
-    //   return;
-    // }
+    if (!this.state.submitActive) {
+      this.setState({
+        error:
+          'Please enter at least first name and last name, leave the email empty to see the web api error.'
+      });
+      return;
+    }
 
     const payload = {
       data: {
@@ -30,9 +33,6 @@ class SubscribeFrom extends Component {
       }
     };
 
-    // subscribeService.submitForm(payload);
-    // this.props.history.push('/subscribe-success');
-
     fetch('/submit-form', {
       method: 'POST',
       headers: {
@@ -42,19 +42,17 @@ class SubscribeFrom extends Component {
       body: JSON.stringify(payload)
     })
       .then(res => {
-        console.log('res 001=', res);
-
         if (res.ok) {
           this.props.history.push('/subscribe-success');
         } else {
           this.setState({
-            error: 'Something goes wrong when making web api call.'
+            error: 'Something went wrong when making web api call.'
           });
-          throw new Error('something wrong on epxress api call');
+          throw new Error('Something went wrong on epxress api call');
         }
       })
       .catch(err => {
-        console.log('subscribeService error', err);
+        //more error handling here if required!
       });
   }
 
@@ -68,7 +66,8 @@ class SubscribeFrom extends Component {
   }
 
   checkFields = () => {
-    if (this.state.firstName && this.state.lastName && this.state.email) {
+    // Do NOT check email on purpose, if can see api call returns error.
+    if (this.state.firstName && this.state.lastName) {
       this.setState({
         submitActive: true
       });
