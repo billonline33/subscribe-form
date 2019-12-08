@@ -3,12 +3,13 @@ const config = require('../config');
 
 module.exports = app => {
   app.post('/submit-form', (req, res) => {
+    console.log('000=', req.body);
     fetch(config.subscriptionBaseUrl.endPoint, {
       method: 'POST',
       headers: {
         'x-auth': 'react-test'
       },
-      body: req.body
+      body: JSON.stringify(req.body)
     })
       .then(res => res.json())
       .then(data => {

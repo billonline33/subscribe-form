@@ -8,13 +8,18 @@ class SubscribeFrom extends Component {
       firstName: '',
       lastName: '',
       email: '',
-      mobilePhone: ''
+      mobilePhone: '',
+      submitActive: false
     };
   }
 
   handleSubmit(e) {
-    console.log(`Submit Clicked, first name is ${this.state.firstName}`);
     e.preventDefault();
+
+    if (!this.state.submitActive) {
+      return;
+    }
+
     const payload = {
       data: {
         firstName: this.state.firstName,
@@ -35,7 +40,20 @@ class SubscribeFrom extends Component {
     this.setState({
       [name]: value
     });
+    this.checkFields();
   }
+
+  checkFields = () => {
+    if (this.state.firstName && this.state.lastName && this.state.email) {
+      this.setState({
+        submitActive: true
+      });
+    } else {
+      this.setState({
+        submitActive: false
+      });
+    }
+  };
 
   render() {
     return (
