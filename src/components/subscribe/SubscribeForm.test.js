@@ -138,5 +138,41 @@ describe('Controlled form testing', () => {
 
       expect(mockPreventDefault).toHaveBeenCalled();
     });
+
+    it('should return if not all field are entered', () => {
+      const mockPreventDefault = jest.fn();
+
+      const mockEvent = {
+        preventDefault: mockPreventDefault
+      };
+
+      const spy = jest.spyOn(wrapper.instance(), 'handleSubmit');
+      wrapper.instance().forceUpdate();
+
+      wrapper.instance().handleSubmit(mockEvent);
+      expect(spy).toReturn();
+    });
+  });
+
+  describe('checkFields', () => {
+    it('should set submitActive to true if it meets conditions', () => {
+      wrapper.setState({
+        firstName: 'Bill',
+        lastName: 'Huang'
+      });
+
+      wrapper.instance().checkFields();
+      expect(wrapper.state().submitActive).toEqual(true);
+    });
+
+    it('should set submitActive to false if it does not meet all conditions', () => {
+      wrapper.setState({
+        firstName: 'Bill',
+        lastName: ''
+      });
+
+      wrapper.instance().checkFields();
+      expect(wrapper.state().submitActive).toEqual(false);
+    });
   });
 });
