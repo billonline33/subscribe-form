@@ -1,19 +1,22 @@
 {
-  "posts": [
+  "submission": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "data": {
+        "firstName": "bill",
+        "lastName": "huang",
+        "email": "dhiraj@gmail.com",
+        "mobilePhone": ""
+      },
+      "id": 1
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "data": {
+        "firstName": "bill",
+        "lastName": "huang",
+        "email": "dhiraj@gmail.com",
+        "mobilePhone": ""
+      },
+      "id": 2
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
