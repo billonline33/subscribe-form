@@ -1,5 +1,5 @@
 module.exports = {
   subscriptionBaseUrl: {
-    endPoint: 'https://ckzvgrbymezqegu.form.io/reacttestform/submission'
+    endPoint: 'http://localhost:8080/submission'
   }
 };
